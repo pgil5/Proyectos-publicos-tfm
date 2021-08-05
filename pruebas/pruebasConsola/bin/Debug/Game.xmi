@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameCreator:Game
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:GameCreator="GameCreator"
+    xsi:schemaLocation="GameCreator gameCreator.ecore">
+  <locations
+      name="ReinaSofia"
+      fullName="Museo Reina Sofia"
+      coordX="40.40810834610463"
+      coordY="-3.6945998176416746"/>
+  <locations
+      name="Cibeles"
+      fullName="Plaza de Cibeles"
+      coordX="40.4195110821817"
+      coordY="-3.693055938805313"/>
+  <locations
+      name="PalacioReal"
+      fullName="Palacio Real"
+      coordX="40.41808567108273"
+      coordY="-3.71431200229728"/>
+  <locations
+      name="Atocha"
+      fullName="Estacion de Atocha"
+      coordX="40.40667928291933"
+      coordY="-3.690437345997182"/>
+  <locations
+      name="PlazaCastilla"
+      fullName="Plaza Castilla"
+      coordX="40.466052977194146"
+      coordY="-3.689871031131915"/>
+  <tests name="t1"
+      location="//@locations.0"
+      duration="30"
+      question="Who painted the Guernica?"
+      correctAnswer="Pablo Picasso"
+      points="5"
+      onCorrect="//@tests.1"
+      onTimeout="//@tests.2"
+      locationDerivation="40.1">
+    <answers>Pablo Picasso</answers>
+    <answers>Francisco de Goya</answers>
+    <answers>Diego Velazquez</answers>
+    <hints>He was born in Malaga</hints>
+  </tests>
+  <tests name="t2"
+      location="//@locations.1"
+      duration="10"
+      question="What socker team celebrates his victories in this square?"
+      correctAnswer="Real Madrid"
+      attempts="2"
+      points="10"
+      onCorrect="//@tests.2">
+    <answers>Real Madrid</answers>
+    <answers>Atletico de Madrid</answers>
+    <answers>Rayo Vallecano</answers>
+  </tests>
+  <tests name="t3"
+      location="//@locations.2"
+      duration="15"
+      question="When was the Palacio Real built?"
+      correctAnswer="1735"
+      points="20"
+      onCorrect="//@tests.3"
+      onTimeout="//@tests.3"
+      locationDerivation="14.0">
+    <answers>1735</answers>
+    <answers>1815</answers>
+    <answers>2001</answers>
+    <answers>2020</answers>
+    <hints>It's not 2020</hints>
+  </tests>
+  <tests name="t4"
+      location="//@locations.2"
+      duration="35"
+      question="Do the Spain kings live in the Palacio Real?"
+      correctAnswer="Yes"
+      points="5"
+      onCorrect="//@tests.4"
+      onFailure="//@tests.0"
+      onTimeout="//@tests.2">
+    <answers>Yes</answers>
+    <answers>No</answers>
+    <answers></answers>
+  </tests>
+  <tests name="t5"
+      location="//@locations.3"
+      duration="50"
+      question="Does the garden have turtles?"
+      correctAnswer="Yes"
+      points="2"
+      onCorrect="//@tests.5"
+      locationDerivation="150.0">
+    <answers>Yes</answers>
+    <answers>No</answers>
+  </tests>
+  <tests name="t6"
+      location="//@locations.4"
+      duration="60"
+      question="Who is the guy represented in the statue?"
+      correctAnswer="Carlos III"
+      points="10"
+      locationDerivation="50.0">
+    <answers>Carlos III</answers>
+    <answers>Felipe VI</answers>
+    <answers>Fernando VII</answers>
+  </tests>
+</GameCreator:Game>

@@ -1,0 +1,107 @@
+﻿<Window x:Class="XbimXplorer.XplorerMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xbim="http://schemas.Xbim.com/Presentation"
+        xmlns:local="clr-namespace:XbimXplorer"
+        xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+        xmlns:etb="clr-namespace:XbimXplorer.EditableTextBlock"
+    xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+    xmlns:viewModels="clr-namespace:Xbim.Ifc.ViewModels;assembly=Xbim.Ifc"
+    Title="Xbim Xplorer" Height="600" Width="800" 
+    x:Name="MainWindow"
+         ContentRendered="RenderedEvents" Icon="pack://siteoforigin:,,,/xBIM.ico" >
+    <Window.Resources>
+        <ObjectDataProvider x:Key="ModelProvider"  IsInitialLoadEnabled="False" ></ObjectDataProvider>
+        <DataTemplate DataType="{x:Type viewModels:XbimModelViewModel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" FontWeight="Bold"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:SpatialViewModel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <!--<Image Grid.Column="0" Source="/folder.png" Margin="0 0 4 0"/>-->
+                <TextBlock Grid.Column="1" Text="{Binding Name}" FontWeight="Bold"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ContainedElementsViewModel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <!--<Image Grid.Column="0" Source="/folder.png" Margin="0 0 4 0"/>-->
+                <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:IfcProductModelView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <!--<Image Grid.Column="0" Source="/folder.png" Margin="0 0 4 0"/>-->
+                <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="Open"   Executed="CommandBinding_Open" CanExecute="CommandBinding_CanExecute"/>
+        <CommandBinding Command="Refresh" Executed="CommandBinding_Refresh"  CanExecute="CanExecuteIfFileOpen"/>
+        <CommandBinding Command="SaveAs" Executed="CommandBinding_SaveAs"  CanExecute="CanExecuteIfModelNotNull"/>
+        <CommandBinding Command="Close"  Executed="CommandBinding_Close" CanExecute="CanExecuteIfFileOpen"/>
+        
+        <CommandBinding Command="{x:Static local:XplorerMainWindow.EditFederationCmd}" Executed="EditFederationCmdExecuted" CanExecute="EditFederationCmdCanExecute"/>
+        <CommandBinding Command="{x:Static local:XplorerMainWindow.CreateFederationCmd}" Executed="CreateFederationCmdExecuted" CanExecute="CommandBinding_CanExecute"/>
+        <CommandBinding Command="{x:Static local:XplorerMainWindow.OpenExportWindowCmd}" Executed="OpenExportWindow" CanExecute="CommandBinding_CanExecute"/>
+    </Window.CommandBindings>
+    
+    <Grid Name="MainFrame" DataContext="{StaticResource ModelProvider}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="24" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" MinHeight="23" />
+        </Grid.RowDefinitions>
+
+        <avalonDock:DockingManager Grid.Row="1" x:Name="DockingManager">
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel x:Name="MainPanel" Orientation="Horizontal">
+                    <avalonDock:LayoutDocumentPane x:Name="MainDocPane">
+                        <avalonDock:LayoutDocument  CanClose="False" Title="3D View">
+                            <xbim:DrawingControl3D 
+                                x:Name="DrawingControl" 
+                                   SelectedEntity="{Binding Path=SelectedItem, ElementName=MainWindow, Mode=TwoWay}"    
+                                   Model ="{Binding}" 
+                                   Focusable="True" 
+                                   Width="Auto" 
+                                   Height="Auto" 
+                                   MouseDoubleClick="SpatialControl_MouseDoubleClick"
+                                   WcsAdjusted="{x:Static local:App.ContextWcsAdjustment}" Loaded="DrawingControl_Loaded"
+                                   >
+                                <xbim:DrawingControl3D.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFB9B1B1" Offset="1"/>
+                                        <GradientStop Color="#FFFAF8FF"/>
+                                    </LinearGradientBrush>
+                                </xbim:DrawingControl3D.Background>
+                            </xbim:DrawingControl3D>
+                        </avalonDock:LayoutDocument>
+                    </avalonDock:LayoutDocumentPane>
+                </avalonDock:LayoutPanel>
+            </avalonDock:LayoutRoot>
+        </avalonDock:DockingManager>
+    </Grid>
+</Window>

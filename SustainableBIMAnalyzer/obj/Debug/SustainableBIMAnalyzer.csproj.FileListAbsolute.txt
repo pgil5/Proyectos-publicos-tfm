@@ -1,0 +1,10 @@
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\bin\Debug\SustainableBIMAnalyzer.exe.config
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\bin\Debug\SustainableBIMAnalyzer.exe
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\bin\Debug\SustainableBIMAnalyzer.pdb
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\obj\Debug\SustainableBIMAnalyzer.csprojAssemblyReference.cache
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\obj\Debug\SustainableBIMAnalyzer.Properties.Resources.resources
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\obj\Debug\SustainableBIMAnalyzer.csproj.GenerateResource.cache
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\obj\Debug\SustainableBIMAnalyzer.csproj.CoreCompileInputs.cache
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\obj\Debug\SustainableBIMAnalyzer.exe
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\obj\Debug\SustainableBIMAnalyzer.pdb
+C:\Users\pablo\Clase\TFM\TFM-Code\code\SustainableBIMAnalyzer\obj\Debug\SustainableBIMAnalyzer.MainMenu.resources

@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>pruebasConsola</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fsm.nmf" />
+    <None Remove="Game.nmf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="fsm.nmf" />
+    <EmbeddedResource Include="Game.nmf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\Game.xmi" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ECoreNetto" Version="1.0.3" />
+    <PackageReference Include="Mexedge.VisualStudio.Modeling" Version="0.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.11.0" Version="4.0.30319" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK.VsixSuppression" Version="14.1.37" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.1600">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NMF-Basics" Version="2.0.164" />
+    <PackageReference Include="Xbim.Common" Version="5.1.323" />
+    <PackageReference Include="Xbim.Essentials" Version="5.1.323" />
+    <PackageReference Include="Xbim.Ifc" Version="5.1.323" />
+    <PackageReference Include="Xbim.Ifc4" Version="5.1.323" />
+    <PackageReference Include="Xbim.IO.MemoryModel" Version="5.1.323" />
+    <PackageReference Include="Xbim.Tessellator" Version="5.1.323" />
+  </ItemGroup>
+
+</Project>

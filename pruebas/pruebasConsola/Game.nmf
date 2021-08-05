@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="GameCreator" Prefix="GameCreator" Name="GameCreator" xmi:id="$0" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" Name="Game" xmi:id="$1">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Location" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="locations" xmi:id="$2" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Test" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="tests" xmi:id="$3" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Test" IsOrdered="True" IsUnique="True" LowerBound="1" Name="initialTest" xmi:id="$4" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="welcomeMsg" xmi:id="$5" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//Test/name" Name="Test" xmi:id="$6">
+    <References ReferenceType="nmeta:Class #//Location" IsOrdered="True" IsUnique="True" LowerBound="1" Name="location" xmi:id="$7" />
+    <References ReferenceType="nmeta:Class #//Test" IsOrdered="True" IsUnique="True" Name="onCorrect" xmi:id="$8" />
+    <References ReferenceType="nmeta:Class #//Test" IsOrdered="True" IsUnique="True" Name="onFailure" xmi:id="$9" />
+    <References ReferenceType="nmeta:Class #//Test" IsOrdered="True" IsUnique="True" Name="onTimeout" xmi:id="$10" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" xmi:id="$11" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Integer" Name="duration" xmi:id="$12" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="question" xmi:id="$13" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="2" UpperBound="-1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="answers" xmi:id="$14" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="correctAnswer" xmi:id="$15" />
+    <Attributes IsOrdered="True" IsUnique="True" UpperBound="-1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="hints" xmi:id="$16" />
+    <Attributes DefaultValue="1" IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Integer" Name="attempts" xmi:id="$17" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Integer" Name="points" xmi:id="$18" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Double" Name="locationDerivation" xmi:id="$19" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//Location/name" Name="Location" xmi:id="$20">
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" xmi:id="$21" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="fullName" xmi:id="$22" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Double" Name="coordX" xmi:id="$23" />
+    <Attributes IsOrdered="True" IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Double" Name="coordY" xmi:id="$24" />
+  </Types>
+</nmeta:Namespace>
