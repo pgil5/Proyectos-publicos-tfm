@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated BIMMixer -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="BIMMixer.presentation.BIMMixerModelWizardID"
+            name="%_UI_BIMMixerModelWizard_label"
+            class="BIMMixer.presentation.BIMMixerModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/BIMMixerModelFile.gif">
+         <description>%_UI_BIMMixerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated BIMMixer -->
+      <editor
+            id="BIMMixer.presentation.BIMMixerEditorID"
+            name="%_UI_BIMMixerEditor_label"
+            icon="icons/full/obj16/BIMMixerModelFile.gif"
+            extensions="bimmixer"
+            class="BIMMixer.presentation.BIMMixerEditor"
+            contributorClass="BIMMixer.presentation.BIMMixerActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/BIMMixer/src" modelPluginID="BIMMixer" modelName="BIMMixer"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>BIMMixer.ecore</foreignModel>
+  <genPackages prefix="BIMMixer" disposableProviderFactory="true" ecorePackage="BIMMixer.ecore#/">
+    <genClasses ecoreClass="BIMMixer.ecore#//BIMMixerApp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//BIMMixerApp/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BIMMixer.ecore#//BIMMixerApp/certifications"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="BIMMixer.ecore#//BIMCertification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//BIMCertification/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BIMMixer.ecore#//BIMCertification/Categories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BIMMixer.ecore#//BIMCertification/connectedCertification"/>
+    </genClasses>
+    <genClasses ecoreClass="BIMMixer.ecore#//BreeamCertification"/>
+    <genClasses ecoreClass="BIMMixer.ecore#//LEEDCertification"/>
+    <genClasses ecoreClass="BIMMixer.ecore#//Category">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//Category/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BIMMixer.ecore#//Category/subCategories"/>
+    </genClasses>
+    <genClasses ecoreClass="BIMMixer.ecore#//Subcategory">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BIMMixer.ecore#//Subcategory/connection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//Subcategory/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//Subcategory/points"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//Subcategory/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//Subcategory/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BIMMixer.ecore#//Subcategory/obtainedPoints"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

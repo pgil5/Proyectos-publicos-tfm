@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: bimMixerXtext
+Bundle-ManifestVersion: 2
+Bundle-Name: bimMixerXtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: bimMixerXtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: BIMMixer,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: bimMixer.validation,
+ bimMixer.scoping,
+ bimMixer,
+ bimMixer.formatting2,
+ bimMixer.generator,
+ bimMixer.serializer,
+ bimMixer.services,
+ bimMixer.parser.antlr,
+ bimMixer.parser.antlr.internal
+Import-Package: org.apache.log4j

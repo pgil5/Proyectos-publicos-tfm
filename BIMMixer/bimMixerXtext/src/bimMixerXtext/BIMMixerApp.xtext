@@ -1,0 +1,57 @@
+grammar bimMixer.BIMMixerApp with org.eclipse.xtext.common.Terminals
+
+import "platform:/resource/BIMMixer/model/BIMMixer.ecore" 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+BIMMixerApp returns BIMMixerApp:
+	{BIMMixerApp}
+	'BIMMixerApp'
+	name=EString
+	':'
+	(certifications+=BIMCertification (certifications+=BIMCertification)*)?;
+
+BIMCertification returns BIMCertification:
+	BreeamCertification | LEEDCertification;
+
+BreeamCertification returns BreeamCertification:
+	'BreeamCertification'
+	name=EString
+	'{'
+		Categories+=Category ( "," Categories+=Category)*
+		('connectedCertification:' connectedCertification=[BIMCertification|EString])?
+	'}';
+
+LEEDCertification returns LEEDCertification:
+	'LEEDCertification'
+	name=EString
+	'{'
+		Categories+=Category ( "," Categories+=Category)*
+		('connectedCertification:' connectedCertification=[BIMCertification|EString])?
+	'}';
+
+Category returns Category:
+	'Category'
+	name=EString
+	'{'
+		subCategories+=Subcategory ( "," subCategories+=Subcategory)*
+	'}';
+
+Subcategory returns Subcategory:
+	{Subcategory}
+	name=EString
+	'{'
+		('text:' text=EString)?
+		('points:' points=EFloat)?
+		('obtainedPoints:' obtainedPoints=EFloat)?
+		('connection:' connection=[Subcategory|EString])?
+		(required?='required')?
+	'}';
+
+EString returns ecore::EString:
+	STRING | ID;
+
+EFloat returns ecore::EFloat:
+	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
